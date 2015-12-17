@@ -302,6 +302,8 @@ $(document).ready(function(){
             location.href = _location + '#right' + target.getAttribute('tag');
         }
     });
+
+
 });
 
 

@@ -136,9 +136,11 @@ table.diff th.author {
 }
 table.diff .codeceil_left{
     border-right: 0px solid #ccc;
+    word-break: break-all;
 }
 table.diff .codeceil_right{
     border-left: 0px solid #ccc;
+    word-break: break-all;
 }
 table.diff .split{
     background: #c9c9c9;
