@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diff Demo</title>
+    <script src="./jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="./jsdifflib/difflib.js" type="text/javascript"></script>
+    <script src="./jsdifflib/diffview.js" type="text/javascript"></script>
+    <link href="./jsdifflib/diffview.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<textarea id="base_file_content" desc="被diff的文件内容" class="hide"><?php
+
+/**
+ *  Copyright (c) 2013-2014
+ *  This is no free page
+ *  Activity.php  2014-11-6 上午10:51:42 PHP UTF-8
+ *  @author yky@yky.pw
+ */
+
+new line
+change line
+
+
+
+
+
+
+
+
+
+
+
+
+
+delete
+
+
+</textarea>
+<textarea id="new_file_content" desc="修改的文件内容" class="hide"><?php
+
+/**
+ *  Copyright (c) 2013-2014
+ *  This is no free page
+ *  Activity.php  2014-11-6 上午10:51:42 PHP UTF-8
+ *  @author yky@yky.pw
+ */
+
+replace line
+
+
+
+
+
+
+add line
+
+fix bug
+
+</textarea>
+<div class="diff_box">
+    <div id="diff_content"></div>
+    <div class="diff_tags" id="diff_tags"></div>
+</div>
+</body>
+</html>
