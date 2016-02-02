@@ -60,7 +60,7 @@ diffview = {
 			throw "Cannot build diff view; newTextLines is not defined.";
 		if (!opcodes)
 			throw "Canno build diff view; opcodes is not defined.";
-		
+
 		function celt (name, clazz, attr) {
 			var e = document.createElement(name);
 			e.className = clazz;
@@ -69,7 +69,7 @@ diffview = {
             }
 			return e;
 		}
-		
+
 		function telt (name, text, attr) {
 			var e = document.createElement(name);
 			e.appendChild(document.createTextNode(text));
@@ -80,7 +80,7 @@ diffview = {
             }
 			return e;
 		}
-		
+
 		function ctelt (name, clazz, text, type, attr) {
 			var e = document.createElement(name);
 			e.className = clazz + " codeceil codeceil_" + type;
@@ -106,13 +106,13 @@ diffview = {
             node.appendChild(document.createElement("th"));
 		}
 		tdata = [tdata];
-		
+
 		var rows = [];
 		var node2;
-		
+
 		/**
 		 * Adds two cells to the given row; if the given row corresponds to a real
-		 * line number (based on the line index tidx and the endpoint of the 
+		 * line number (based on the line index tidx and the endpoint of the
 		 * range in question tend), then the cells will contain the line number
 		 * and the line of text from textLines at position tidx (with the class of
 		 * the second cell set to the name of the change represented), and tidx + 1 will
@@ -147,13 +147,13 @@ diffview = {
 				return tidx;
 			}
 		}
-		
+
 		function addCellsInline (row, tidx, tidx2, textLines, change) {
 			row.appendChild(telt("th", tidx == null ? "" : (tidx + 1).toString()));
 			row.appendChild(telt("th", tidx2 == null ? "" : (tidx2 + 1).toString()));
 			row.appendChild(ctelt("td", change, textLines[tidx != null ? tidx : tidx2].replace(/\t/g, "\u00a0\u00a0\u00a0\u00a0")));
 		}
-		
+
 		for (var idx = 0; idx < opcodes.length; idx++) {
 			code = opcodes[idx];
 			change = code[0];
@@ -170,7 +170,7 @@ diffview = {
 					var jump = rowcnt - ((idx == 0 ? 1 : 2) * contextSize);
 					if (jump > 1) {
 						toprows.push(node = document.createElement("tr"));
-						
+
 						b += jump;
 						n += jump;
 						i += jump - 1;
@@ -178,7 +178,7 @@ diffview = {
 						if (!inline) node.appendChild(ctelt("td", "skip", ""));
 						node.appendChild(telt("th", "..."));
 						node.appendChild(ctelt("td", "skip", ""));
-						
+
 						// skip last lines if they're all equal
 						if (idx + 1 == opcodes.length) {
 							break;
@@ -187,7 +187,7 @@ diffview = {
 						}
 					}
 				}
-				
+
 				toprows.push(node = document.createElement("tr"));
 				if (inline) {
 					if (change == "insert") {
@@ -238,10 +238,10 @@ diffview = {
         node.appendChild(telt('span', ' this style design by '));
         node.appendChild(node3 = telt("a", "yky"));
         node3.setAttribute("href", "http://github.com/shukean/jsdifflib");
-		
+
 		tdata.push(node = document.createElement("tbody"));
 		for (var idx in rows) rows.hasOwnProperty(idx) && node.appendChild(rows[idx]);
-		
+
 		node = celt("table", "diff" + (inline ? " inlinediff" : ""));
 		for (var idx in tdata) tdata.hasOwnProperty(idx) && node.appendChild(tdata[idx]);
 		return node;
